@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // User profiles: allow read and write for seamless profile updates and guest persistence
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    // Posts: allow read and write so creating and auto-saving posts never fails
+    match /posts/{postId} {
+      allow read, write: if true;
+
+      // Comments subcollection
+      match /comments/{commentId} {
+        allow read, write: if true;
+      }
+    }
+
+    // Drafts collection for auto-saving drafts across sessions
+    match /drafts/{draftId} {
+      allow read, write: if true;
+    }
+  }
+}
+

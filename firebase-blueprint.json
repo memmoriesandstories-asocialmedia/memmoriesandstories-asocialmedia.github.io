@@ -1,0 +1,103 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile in the social network",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "handle": { "type": "string" },
+        "avatar": { "type": "string" },
+        "coverImage": { "type": "string" },
+        "bio": { "type": "string" },
+        "website": { "type": "string" },
+        "location": { "type": "string" },
+        "joinedDate": { "type": "string" },
+        "followingCount": { "type": "number" },
+        "followersCount": { "type": "number" },
+        "email": { "type": "string" }
+      },
+      "required": ["id", "name", "handle", "avatar"]
+    },
+    "Post": {
+      "title": "Post",
+      "description": "A social media post with text, image, and likes",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "author": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string" },
+            "name": { "type": "string" },
+            "handle": { "type": "string" },
+            "avatar": { "type": "string" }
+          },
+          "required": ["id", "name", "handle", "avatar"]
+        },
+        "content": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "tags": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "likesCount": { "type": "number" },
+        "likes": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "bookmarks": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "location": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "createdAtTimestamp": { "type": "number" }
+      },
+      "required": ["id", "author", "content", "createdAt"]
+    },
+    "Comment": {
+      "title": "Comment",
+      "description": "A comment on a post",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "postId": { "type": "string" },
+        "author": {
+          "type": "object",
+          "properties": {
+            "id": { "type": "string" },
+            "name": { "type": "string" },
+            "handle": { "type": "string" },
+            "avatar": { "type": "string" }
+          },
+          "required": ["id", "name", "handle", "avatar"]
+        },
+        "content": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "createdAtTimestamp": { "type": "number" },
+        "likesCount": { "type": "number" },
+        "likes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": ["id", "postId", "author", "content", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Public user profile"
+    },
+    "/posts/{postId}": {
+      "schema": "Post",
+      "description": "Social media post"
+    },
+    "/posts/{postId}/comments/{commentId}": {
+      "schema": "Comment",
+      "description": "Comment on a post"
+    }
+  }
+}
