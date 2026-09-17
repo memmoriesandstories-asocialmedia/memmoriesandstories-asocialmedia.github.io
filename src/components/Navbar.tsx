@@ -15,6 +15,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { useSocial } from '../context/SocialContext';
 import { SUPPORTED_LANGUAGES } from '../lib/i18n';
+import { AppIcon } from './AppIcon';
 
 export const Navbar: React.FC = () => {
   const {
@@ -46,9 +47,7 @@ export const Navbar: React.FC = () => {
           onClick={() => setActiveTab('feed')}
           className="flex items-center gap-2.5 cursor-pointer select-none shrink-0 group"
         >
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-500 to-amber-500 flex items-center justify-center text-white shadow-md shadow-rose-500/20 group-hover:scale-105 transition-transform">
-            <Sparkles className="w-5 h-5" />
-          </div>
+          <AppIcon size="md" className="group-hover:scale-105 transition-transform" />
           <div>
             <span className="text-xl font-bold tracking-tight text-neutral-900 block leading-tight">
               {t('app.name')}

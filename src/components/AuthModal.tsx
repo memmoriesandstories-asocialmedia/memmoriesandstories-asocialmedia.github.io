@@ -13,6 +13,7 @@ import {
   ShieldCheck,
 } from 'lucide-react';
 import { useSocial } from '../context/SocialContext';
+import { AppIcon } from './AppIcon';
 
 export const AuthModal: React.FC = () => {
   const {
@@ -137,8 +138,8 @@ export const AuthModal: React.FC = () => {
             >
               <X className="w-5 h-5" />
             </button>
-            <div className="w-12 h-12 rounded-2xl bg-white/20 backdrop-blur-sm mx-auto flex items-center justify-center mb-3 shadow-inner">
-              <Sparkles className="w-6 h-6 text-white" />
+            <div className="mx-auto flex items-center justify-center mb-3">
+              <AppIcon size="lg" className="shadow-lg shadow-black/20 ring-2 ring-white/30" />
             </div>
             <h3 className="text-xl font-bold tracking-tight">歡迎來到社群分享</h3>
             <p className="text-xs text-white/85 mt-1">

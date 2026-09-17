@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { useSocial } from '../context/SocialContext';
 import { SUPPORTED_LANGUAGES, LanguageCode } from '../lib/i18n';
+import { AppIcon } from './AppIcon';
 
 export const LoginGate: React.FC = () => {
   const {
@@ -97,9 +98,7 @@ export const LoginGate: React.FC = () => {
       {/* Top Bar with Language Selector */}
       <header className="relative z-20 w-full max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-rose-500 to-amber-500 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-rose-600/30">
-            M
-          </div>
+          <AppIcon size="md" />
           <div>
             <h1 className="font-bold text-lg tracking-tight text-white">{t('app.name')}</h1>
             <p className="text-[11px] text-neutral-400 hidden sm:block">{t('app.slogan')}</p>
@@ -160,6 +159,7 @@ export const LoginGate: React.FC = () => {
         <div className="w-full max-w-md bg-neutral-800/90 backdrop-blur-xl border border-neutral-700/70 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
           {/* Header text */}
           <div className="text-center space-y-2">
+            <AppIcon size="lg" className="mx-auto shadow-rose-500/30 ring-4 ring-neutral-700/60" />
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20 text-xs font-semibold">
               <Lock className="w-3.5 h-3.5" />
               <span>{t('auth.mustLoginNotice')}</span>
